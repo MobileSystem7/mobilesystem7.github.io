@@ -1,0 +1,10 @@
+name: "Mobile System 7 Developer Blog"
+description: ""
+
+url: "https://developers.mobilesystem7.com"
+
+paginate: 10
+
+markdown: rdiscount
+permalink: pretty
+highlighter: true

@@ -1,0 +1,54 @@
+.project{
+  height: 280px;
+  width: 280px;
+  text-align: center;
+  float: left;
+  margin: 20px;
+  position: relative;
+}
+.p0{
+  background: #fff;
+}
+.p1{
+  background: #ccc;
+}
+.p2{
+  background: #333;
+}
+.p3{
+  background: #666;
+}
+.p4{
+  background: #999;
+}
+.p5{
+  background: #000;
+}
+.light a:link, .light a:visited, .light a:hover, .light a:active {
+    color: white;
+    text-decoration: none;
+}
+.dark a:link, .dark a:visited, .dark a:hover, .dark a:active {
+    color: #333;
+    text-decoration: none;
+}
+.project-name{
+  position: absolute;
+  display: table;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+}
+.project-name a{
+  display: table-cell;
+  text-align: center;
+  margin: 0;
+  vertical-align: middle;
+}
+.container{
+  max-width: 960px;
+}
+.holder{
+  padding: 20px 0;
+}

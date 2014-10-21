@@ -9,3 +9,8 @@ Jekyll does not play well with JRuby, and nokogiri/iconv are a little different 
 - sudo gem install bundle
 - sudo gem install nokogiri -- --with-iconv-dir=/usr/local/Cellar/libiconv/1.14
 - bundle install
+
+Yosemite notes:
+If you are missing libiconv when compiling nokogiri, do this instead:
+xcode-select --install
+sudo gem install nokogiri -- --with-iconv-dir=/usr/lib

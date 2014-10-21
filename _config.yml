@@ -3,8 +3,9 @@ description: ""
 
 url: "https://developers.mobilesystem7.com"
 
-paginate: 10
-
 markdown: rdiscount
 permalink: pretty
 highlighter: true
+paginate: 5
+paginate_path: "blog/page:num"
+permalink: /blog/post/:title

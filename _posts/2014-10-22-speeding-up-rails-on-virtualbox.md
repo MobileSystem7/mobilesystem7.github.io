@@ -3,13 +3,15 @@ layout: post
 title: Speeding up JRuby/Rails on Vagrant and VirtualBox
 author: Joseph Turner
 ---
-After much head banging (and not the [good kind]()) over the slow
+After much head banging (and not the [good
+kind](https://www.youtube.com/watch?v=389DkzjHpus)) over the slow
 startup time of Rails, I finally decided to bite the bullet and figure
 out what was going on. I have been plagued by multi-minute startups in
 my development environment for a while, and I just couldn't take it
-anymore. Because we develop [Interlock]() in a virtual machine
-set up by [Vagrant]() atop [VirtualBox](), and because the slow-to-start parts of our
-software use [Rails]() atop [JRuby]() atop the venerable [Java](), there were quite
+anymore. Because we develop
+[Interlock](http://www.mobilesystem7.com/interlock/) in a virtual machine
+set up by [Vagrant](http://www.vagrantup.com/) atop [VirtualBox](https://www.virtualbox.org/), and because the slow-to-start parts of our
+software use [Rails](http://rubyonrails.org/) atop [JRuby](http://jruby.org/) atop the venerable [Java](https://www.java.com/en/), there were quite
 a few moving pieces to isolate and try to speed up.
 
 My first thought was that it was OpenJDK that was slowing things down,
@@ -55,14 +57,14 @@ directory! It must be shared directory performance that is the dog. A
 quick search yielded [this Vagrant documentation
 page](http://docs.vagrantup.com/v2/synced-folders/nfs.html). TL;DR:
 
-    In some cases the default shared folder implementations (such as
+> In some cases the default shared folder implementations (such as
 VirtualBox shared folders) have high performance penalties.
 
 I also found [this page](http://docs-v1.vagrantup.com/v1/docs/nfs.html)
 with some older Vagrant documentation that suggests that the problem is
 with folders with lots of files:
 
-    It’s a long known issue that VirtualBox shared folder performance
+> It’s a long known issue that VirtualBox shared folder performance
 degrades quickly as the number of files in the shared folder increases.
 As a project reaches 1000+ files, doing simple things like running unit
 tests or even just running an app server can be many orders of magnitude
@@ -84,7 +86,7 @@ lines to my Vagrantfile:
     config.vm.synced_folder ".", "/vagrant", type: "nfs"
 
 Afterwards, I got a DHCP error when trying to reload my VM. I found a
-bug report that suggested that VirtualBox had a default DHCP instance
+[bug report](https://github.com/mitchellh/vagrant/issues/3083) that suggested that VirtualBox had a default DHCP instance
 that was colliding, and suggested this a workaround. Run this on the
 host machine:
 

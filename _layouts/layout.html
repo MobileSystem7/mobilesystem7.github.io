@@ -15,18 +15,6 @@
         <link rel="alternate" type="application/rss+xml" title="feed" href="/feed.xml" />        
         <script src="/static/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
         <style>
-            .navbar-inner{
-              border: none;
-              background-image: none;
-              min-height: 80px;
-            }
-            .navbar-static-top{
-              margin-bottom: 30px;
-              box-shadow: 0px 5px #aaa;
-            }
-            .navbar .brand img{
-              vertical-align: inherit;
-            }
             .cta-header {
               text-align: center;
               margin-top: 10px;
@@ -116,6 +104,12 @@
       {{ content }}  
         <div class='container'>
             <hr />
+            <ul class="nav nav-pills">
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li><a href="/toc.html">Table of Contents</a></li>
+            </ul>
             <p>Copyright &copy; 2014 Mobile System 7 - <a href="http://www.mobilesystem7.com">www.mobilesystem7.com</a>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>

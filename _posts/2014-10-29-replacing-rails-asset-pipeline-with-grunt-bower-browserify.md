@@ -411,9 +411,60 @@ module.exports = function(grunt) {
 
 The other heavy lifter of our Grunt tasks is the grunt-contrib-concat task. Concat takes all our vendor files, javascripts and stylesheets, and allows us to concatenate them together in a load order so that we can serve up a single file, reducing requests and making uglification/minification easier. It also handles a lot of the moving of files from our `/app/assets/**` to our `/public/**` with the destination concatenated files.
 
+####/app/assets/grunt_tasks/contrib-concat.js
+
+```
+module.exports = function (grunt) {
+
+    grunt.config.set('concat', {
+
+        options: {},
+
+        testhelpers: {
+            src: [
+                '<%= paths.assets %>/test/jasmine-jquery/jasmine-jquery.js',
+                '<%= paths.assets %>/test/sinon/index.js',
+            ],
+            dest: '<%= paths.tests %>/sinon-jasmine-jquery.js'
+        },
+
+
+        app_js: {
+            src: [
+                '<%= paths.assets %>/js/modernizr/modernizr.custom.js',
+                '<%= paths.assets %>/js/jquery/jquery.js',
+                '<%= paths.assets %>/jquery-ujs/rails.js',
+                '<%= paths.assets %>/js/bootstrap/*.js',
+                '<%= paths.assets %>/bootstrap-datepicker/bootstrap-datepicker.js',
+                '<%= paths.assets %>/js/d3/d3.js',
+                '<%= paths.assets %>/js/underscore/underscore.js',
+                '<%= paths.assets %>/js/backbone/backbone.js',
+                '<%= paths.assets %>/js/mustache/mustache.js',
+                '<%= paths.assets %>/js/jquery-Mustache/jquery.mustache.js',
+                '<%= paths.assets %>/js/moment/moment.js',
+                '<%= paths.assets %>/leaflet/leaflet.js',
+                '<%= paths.assets %>/js/leaflet.markercluster/leaflet.markercluster.js',
+                '<%= paths.src_js %>/vendor/bootstrap-overrides.js'
+            ],
+            dest: '<%= paths.dist_js %>/app.js'
+        },
+
+
+        styles: {
+            src: [
+                '<%= paths.src_css %>/compiled/app.css',
+                '<%= paths.assets %>/bootstrap-datepicker/datepicker.css',
+                '<%= paths.assets %>/leaflet/leaflet.css',
+                '<%= paths.assets %>/css/leaflet.markercluster/MarkerCluster.css'
+            ],
+            dest: '<%= paths.dist_css%>/app.css'
+        },
+...
+```
+
 
 <hr>
-#### Serving up the UI
+## Serving up the UI
 
 In our Rails app we still use .erb `stylesheet_link_tag` and `javascript_include_tag` since they target the `/public/` directory and automatically add a hash to aid in cache busting. Here's an example of how we're including styles and javascripts.
 
@@ -431,7 +482,7 @@ In our Rails app we still use .erb `stylesheet_link_tag` and `javascript_include
 
 
 <hr>
-#### Conclusion
+## Conclusion
 
 While we're able to make some major strides in decoupling our UI from the rest of the Rails app there is still some work to be done. It would be good to get [grunt-filerev](https://github.com/yeoman/grunt-filerev) and [grunt-usemin](https://github.com/yeoman/grunt-usemin) included so we don't have to use the Rails asset hashing for cache busting and can also remove those ugly .erb tags. We'd like to introduce Browserify more into the process to reduce the size/complexity of our `contrib-concat.js` file and grunt-contrib-concat task by using commonjs style includes into our javascripts. All in all, decoupling the UI has worked well and helped to improve our UI development process by giving us more control over the configuration.
 

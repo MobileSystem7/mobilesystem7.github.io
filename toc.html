@@ -1,0 +1,15 @@
+---
+layout: blog
+title: Blog
+---
+<div id="home">
+  <h1>Table of Contents</h1>
+  <hr />
+  {% for post in site.posts %}
+  <p><a href="{{ post.url }}">{{ post.title }}</a><br/>
+    <small class="author">
+      Posted on <span class="date">{{ post.date|date_to_long_string }}</span> by {{ post.author }}
+    </small>
+  </p>
+  {% endfor %}
+</div>

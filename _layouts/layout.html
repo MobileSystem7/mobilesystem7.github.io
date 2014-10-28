@@ -12,6 +12,7 @@
         <link rel="shortcut icon" href="/static/img/favicon.ico" />
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="alternate" type="application/rss+xml" title="feed" href="/feed.xml" />        
         <script src="/static/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
         <style>
             .navbar-inner{
@@ -56,8 +57,10 @@
               line-height: 24px;
             }
             #header{
-                background: white;
+                background: #f8f8f8;
                 box-shadow: 0px 5px #aaa;
+                height: 58px;
+                border-bottom: #acacac;
             }
             #header a:link, #header a:visited, #header a:hover, #header a:active {
                 color: #333;
@@ -65,8 +68,16 @@
             }
 
             #title h1{
-                margin: 0;
-                line-height: 120px;
+                font-size: 1.8em;
+            }
+            
+            #title a.smaller{
+              font-size: 0.6em;
+            }
+            
+            #logo{
+              width: 85px;
+              margin-bottom: 7px;
             }
 
             #header .body-centered{
@@ -89,11 +100,15 @@
       <div id="header">
           <div id="title" class='clearfix'>
               <div class="body-centered">
-                  <h1 class='pull-left'><a href='/'>MS7 Developer Blog</a></h1>
+                  <h1 class='pull-left'>
+                    <a href='/'><img id="logo" src="/static/img/logo.png">&nbsp;&nbsp;&nbsp;Developer Blog</a>
+                  </h1>
                   <h1 class='pull-right'>
-                    <a href='http://github.com/mobilesystem7/'><i class='icon-github'></i></a>
-                    <a href='http://twitter.com/mobilesystem7'><i class='icon-twitter'></i></a>
-                    <a href='https://www.linkedin.com/company/mobile-system-7'><i class='icon-linkedin'></i></a>
+                    <a class="smaller" href="http://www.mobilesystem7.com" target="_blank">mobilesystem7.com</a>&nbsp;&nbsp;&nbsp;
+                    <a href='http://github.com/mobilesystem7/' target="_blank"><i class='icon-github'></i></a>
+                    <a href='http://twitter.com/mobilesystem7' target="_blank"><i class='icon-twitter'></i></a>
+                    <a href='https://www.linkedin.com/company/mobile-system-7' target="_blank"><i class='icon-linkedin'></i></a>
+                    <a href='/feed.xml' target="_blank"><i class='icon-rss'></i></a>                    
                   </h1>
               </div>
           </div>
@@ -101,7 +116,7 @@
       {{ content }}  
         <div class='container'>
             <hr />
-            <p>Copyright &copy; 2014 Mobile System 7
+            <p>Copyright &copy; 2014 Mobile System 7 - <a href="http://www.mobilesystem7.com">www.mobilesystem7.com</a>
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/static/js/vendor/jquery-1.8.2.min.js"><\/script>')</script>

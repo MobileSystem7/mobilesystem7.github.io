@@ -2,6 +2,8 @@
 layout: post
 title: Speeding up JRuby/Rails on Vagrant and VirtualBox
 author: Joseph Turner
+tags: vagrant devops
+category: DevOps
 ---
 After much head banging (and not the [good
 kind](https://www.youtube.com/watch?v=389DkzjHpus)) over the slow

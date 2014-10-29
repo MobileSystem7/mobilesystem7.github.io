@@ -2,6 +2,8 @@
 layout: post
 title: Replacing the Rails Asset Pipeline with Grunt, Bower and Browserify
 author: Chase Courington
+tags: assets build javascript
+category: DevOps
 ---
 
 At Mobile System 7 we're always exploring ways to improve our process. Early this summer we had some disucssion about how to better decouple the UI, 99% Javascript, from the Rails application, which primarily powers our REST api. The opportunity to address this decoupling came when we added a story to address some UI build process issues.

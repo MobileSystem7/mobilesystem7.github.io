@@ -132,7 +132,7 @@ In the figure above, I have annotated the discrete points at which the classifie
 evaluated. The classifier is evaluated when a feature increases in
 value, and also when a feature value falls below a threshold. The values
 passed to the classifier correspond to the value of each feature at the
-point in time when it evaluation is triggered, corresponding to the
+point in time when its evaluation is triggered, corresponding to the
 vertical lines above. Of course, not every run of the classifier results in a new risk level. 
 Practically speaking, there are many more evaluation points than pictured above,
 corresponding both to changes in feature value and changes in

@@ -70,7 +70,7 @@ information needed by the second part of the IA function: the classifier.
 
 Before we move on, I'd like to point out an interesting detail of the
 feature observations. Because they are modified when activities arrive,
-they technically lives in the [time
+they technically live in the [time
 domain](http://en.wikipedia.org/wiki/Time_domain); this just means that the values
 changes over time. In fact, when a feature is
 observed, we model the observation as a function of time as well. In
@@ -201,7 +201,7 @@ challenging by the real-time or near-real-time requirements
 dictated by the Adaptive Access Control aspect of Interlock. In future
 posts, I'll cover some of these practical issues and how we're addressing them.
 
-Looking forward, our roadmap includes both aggressive improvements to
+Looking forward, our roadmap includes aggressive improvements to
 both our theory and our practice. Improvements in the former will yield
 better, more comprehensive pictures of risk for individuals and
 organizations, while improvements in the latter will help us reach

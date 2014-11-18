@@ -84,7 +84,7 @@ our servers?" question, and in my mind that left us with precious few choices:
 the .NET framework or the JVM  (and maybe C if we had been brave, but we're not).  
 
 We could have attempted to convince our customers to let us install some other language interpreter or runtime 
-(and whatever dependencies came with it), but that's far more difficult sell than
+(and whatever dependencies came with it), but that's a far more difficult sell than
 using something they're already comfortable with. 
 
 The JVM was the best choice because it gave us and our customers flexibility over the environments in which

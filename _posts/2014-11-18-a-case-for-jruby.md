@@ -303,7 +303,7 @@ Your mileage will vary, of course, and I genuinely wouldn't expect otherwise.
 JRuby and the Java ecosystem have many great strengths, but there are certainly
 circumstances under which they aren't the appropriate choice.  Hopefully this post has helped highlight at least
 one case where JRuby may be a good choice for you, and if you're interested 
-in discussing further please reach out to me Twitter at [@matt_dew](http://twitter.com/matt_dew).
+in discussing further please reach out to me on Twitter at [@matt_dew](http://twitter.com/matt_dew).
 
 
 

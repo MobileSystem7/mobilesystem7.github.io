@@ -7,18 +7,18 @@ category: Code
 ---
 
 Here at Mobile System 7, most of our code is Ruby, but we do have a small
-amount of java code where ruby deployment would be inappropriate. However,
-just because we have to use java in the code  doesn't mean we need to use
-java to test the code.
+amount of Java code where Ruby deployment would be inappropriate. However,
+just because we have to use Java in the code  doesn't mean we need to use
+Java to test the code.
 
-There are a number of good reasons for using Ruby for testing java code
+There are a number of good reasons for using Ruby for testing Java code
 
 1. Ruby is more concise &mdash; Less code is better.
 2. Ruby testing frameworks like MiniTest are more readable &mdash; using actual english to describe tests ratherThanCamelcaseIdentifiers
 3. We can use some of Ruby's dynamic debugging tools like pry
-4. We have more experience with ruby and ruby test frameworks than with java/junit
+4. We have more experience with Ruby and Ruby test frameworks than with Java/junit
 
-As an example, we will develop a java class that summarizes counts of objects in
+As an example, we will develop a Java class that summarizes counts of objects in
 a collection, returning a Map with unique objects from the collection as keys
 and the count as values. For example:
 
@@ -26,7 +26,7 @@ and the count as values. For example:
         new String[] {"Mann", "Jones", "Trenberth", "Mann"});
     Counter.count(authors)).get("Mann"); // returns 2
 
-This is basically equivalent to the following ruby code:
+This is basically equivalent to the following Ruby code:
 
     authors = ["Mann", "Jones", "Trenberth", "Mann"]
     authors.inject({}) { |result, item| result.merge(item => (result[item] || 0) + 1) }
@@ -36,12 +36,12 @@ This is basically equivalent to the following ruby code:
 
 At its simplest, you just need to have Ruby installed. The standard Ruby library
 includes the MiniTest framework, which provides for several different testing
-styles. Since our other ruby tests are written with rspec, we use the MiniTest::Spec
+styles. Since our other Ruby tests are written with rspec, we use the MiniTest::Spec
 framework.
 
 ## Writing the First Test
 
-We start with the ruby test, which looks like this:
+We start with the Ruby test, which looks like this:
 
     require 'minitest/autorun'
     require "java"
@@ -60,10 +60,10 @@ We start with the ruby test, which looks like this:
       end
     end
 
-The first few lines load minitest and the jruby/java libraries, adds the
-directory where our java class files are stored to Ruby's load path, and
+The first few lines load MiniTest and the JRuby Java libraries, adds the
+directory where our Java class files are stored to Ruby's load path, and
 imports our Counter class so we don't have to specify the package each time.
-One thing to note here is the way java packages are translated into ruby
+One thing to note here is the way Java packages are translated into Ruby
 modules: the periods are replaced with camel case to form a submodule name
 in JRuby's Java module.
 
@@ -73,10 +73,10 @@ returns an empty hash if an empty array is passed in. By starting with
 aa simple test like this, we can verify that all our setup is working
 correctly.
 
-## Writing the Counter java class
+## Writing the Counter Java class
 
 Running this just results in a class not found error, so lets create
-the java class with just enough implementation to get the test to pass:
+the Java class with just enough implementation to get the test to pass:
 
     package com.ms7;
 
@@ -145,8 +145,8 @@ Well, that's odd. It looks the same but isn't actually equal.
 
 ## Using Pry
 
-To figure this out, we are going to use pry, a ruby debugging utility.
-First, we install it using the ruby gems package manager:
+To figure this out, we are going to use pry, a Ruby debugging utility.
+First, we install it using the Ruby gems package manager:
 
     gem install pry
 
@@ -161,7 +161,7 @@ And then modify our test:
         end
 
 The idea here is that when we get to that "binding.pry" line, we will be
-dropped into an interactive ruby session where we can poke at the values
+dropped into an interactive Ruby session where we can poke at the values
 of things:
 
     From: /Users/semprebon/Library/JRuby/jruby-1.7.2/lib/ruby/gems/shared/gems/minitest-4.5.0/lib/minitest/unit.rb @ line 1318 Java::ComMs7::Counter::count::with collection of 2 like items#test_0001_returns hash with count:
@@ -185,9 +185,9 @@ Ah, yeah, that should be true. Maybe we are comparing different classes?
     [4] pry(#<Java::ComMs7::Counter::count>)> counter.count(collection).class
     => Java::JavaUtil::HashMap
 
-Yeah, that's the problem. The java class is returning a java HashMap object,
-but we are comparing it to a ruby Hash object. In any case, we can convert the java HashMap
-into a ruby Hash with the to_hash method. Lets see if that works:
+Yeah, that's the problem. The Java class is returning a Java HashMap object,
+but we are comparing it to a Ruby Hash object. In any case, we can convert the Java HashMap
+into a Ruby Hash with the to_hash method. Lets see if that works:
 
     [5] pry(#<Java::ComMs7::Counter::count>)> counter.count(collection).to_hash == {"Mann"=>2}
     => true
@@ -203,7 +203,7 @@ And sure enough, the test now passes!
 
 ## Test Data Generation
 
-Finally, an example of how to generate test data using jRuby. Lets add a
+Finally, an example of how to generate test data using JRuby. Lets add a
 more complex test that has a random assortment of different items in the
 collection. We create a known quantity of different items, then shuffle
 them to create a random order:
@@ -217,7 +217,7 @@ As expected, this also passes.
 
 ## Summary
 
-This should give you some idea of how to test your java using ruby, and the
+This should give you some idea of how to test your Java using Ruby, and the
 advantages of doing so. Here are some reference links to get you started:
 
 * [A MiniTest::Spec Turorial](http://www.rubyinside.com/a-minitestspec-tutorial-elegant-spec-style-testing-that-comes-with-ruby-5354.html)

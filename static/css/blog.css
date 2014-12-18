@@ -2,8 +2,8 @@
   cursor: auto;
 }
 .container{
-  padding-top: 20px;
-  max-width: 640px;
+  padding-top: 0px;
+  max-width: max-width: 960px;
 }
 .share{
   border-bottom: 1px solid #ccc;
@@ -22,7 +22,12 @@
   color: #999;
 }
 .post{
-  margin: 45px 0;
+  margin-top: 25px;
+  margin-left: 0px;  
+  margin-right: 0px;    
+  margin-bottom: 12px;      
+  width: 700px;
+  float: left;
 }
 .post h1{
   margin: 15px 0;
@@ -31,5 +36,26 @@
   color: #333;
 }
 .post .author{
-  margin: 30px 0;
+  margin: 20px 0;
+}
+
+.smaller{
+  font-size: 0.85em;
+}
+
+.smallest{
+  font-size: 0.7em;
+}
+
+#home{
+  width: 700px;
+  float: left;
+}
+
+#sidebar{
+  margin-left: 60px;
+  margin-top:  102px;
+  float: right;
+  width: 200px;
+  line-height: 15px;
 }

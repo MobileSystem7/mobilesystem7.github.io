@@ -3,7 +3,7 @@ layout: blog
 title: Blog
 ---
 <div id="home">
-  <h1>Table of Contents</h1>
+  <h1 style="margin-top: 40px;">Table of Contents</h1>
   <hr />
   {% for post in site.posts %}
   <p><a href="{{ post.url }}">{{ post.title }}</a><br/>
@@ -13,3 +13,5 @@ title: Blog
   </p>
   {% endfor %}
 </div>
+
+{% include sidebar.html %}

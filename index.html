@@ -68,7 +68,7 @@ title: Blog
           {% if count == paginator.page %}
             <span class="current-page">{{ count }}</span>
           {% else %}
-            <a href="/page{{ count }}">{{ count }}</a>
+            <a href="/blog/page{{ count }}">{{ count }}</a>
           {% endif %}
         </li>
       {% endfor %}
@@ -85,6 +85,9 @@ title: Blog
     </ul>
   </div>
 </div>
+
+{% include sidebar.html %}
+
 <!--
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

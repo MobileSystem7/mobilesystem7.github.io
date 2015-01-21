@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Adaptive Access Control in Interlock"
+title: "Adaptive Access Control and Interlock"
 author: Joseph Turner
-tags: adaptive access control 
-category: data
+tags: adaptive access control authentication mitigation
+category: product
 ---
 
 In an earlier post I [talked about Identity

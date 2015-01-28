@@ -69,15 +69,16 @@ module.exports = function (grunt) {
 };
 ```
 
-<small>We run ```$ grunt intern``` in a **"prod"** task. We still use [Jasmine](//jasmine.github.io/2.1/introduction.html) for our unit tests and for development (for now). We run UI tests when we build for a release since the the UI tests cost more (time and money).</small>
+We run ```$ grunt intern``` in a **"prod"** task. We still use [Jasmine](//jasmine.github.io/2.1/introduction.html) for our unit tests and for development (for now). We run UI tests when we build for a release since the the UI tests cost more (time and money).
 
 ----
 ## Configure Intern
 The [Intern docs](//github.com/theintern/intern/wiki/Configuring-Intern) are pretty great and help us get going with configuration. Areas of interest to get going are:
-    - ```capabilities``` namely the ```screen-resolution```
-    - ```environments```
-    - ```tunnel``` && ```tunnelOptions``` You'll need to get a Sauce Labs access key from your account panel on the web.
-    - ```functionSuites``` This is where we point the AMD loader to our tests
+
+- **capabilities** namely the **screen-resolution**
+- **environments**
+- **tunnel** && **tunnelOptions** You'll need to get a Sauce Labs access key from your account panel on the web.
+- **functionSuites** This is where we point the AMD loader to our tests
 
 **/tests/intern.js**
 
@@ -146,9 +147,13 @@ We can go and step through the tests and view screenshots that are automatically
 
 Setting appropriate timeouts between actions is imperative. Sometimes tests can fail because you're trying to assert something before it has had time to take place. I've set a default timeout to provide plenty of time for things to happen across the network and in the different vms.
 
-Initially I encountered some issues testing our Rails app, running at port 3000, via the proxy. While Intern and Sauce Labs start you at a port you specificy in your config (ours is 9000). You can use Leadfoot to navigate the remote browser to your local app server (ours is at localhost:3000) and then start your tests from there. This adds some time and complexity because you'll need to log in to your app on the remote browser repeatedly for different suites to run if they need to be behind authentication. A little bit of a hack, maybe there's a better way to do this, but I found this to work.
+Initially I encountered some issues testing our Rails app, running at port 3000, via the proxy. While Intern and Sauce Labs start you at a port you specificy in your config (:9000 by default). You can use Leadfoot to navigate the remote browser to your local app server (localhost:3000) and then start your tests from there. This adds some time and complexity because you'll need to log in to your app on the remote browser repeatedly for different suites to run if they need to be behind authentication. A little bit of a hack, maybe there's a better way to do this, but I found this to work.
 
 Running functional tests can get costly in time and money. We run Jasmine unit tests as part of our Grunt development process with grunt-contrib-watch and then run a whole functional test suite with Intern and Sauce Labs pre-release. We think this process works pretty well.
+
+The Intern is fairly powerful in that we can also write our unit tests with it. Since we've already got some 300+ Jasmine unit tests we're not jumping at the opportunity to refactor those into the Intern. However we may move that direction eventually to simplify our development and testing process.
+
+For questions, comments, suggestions, etc. please reach out. [@chasecourington](https://twitter.com/chasecourington)
 
 ----
 ## Resources

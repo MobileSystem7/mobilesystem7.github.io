@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Adaptive Access Control in Interlock"
+title: "Adaptive Access Control and Interlock"
 author: Joseph Turner
-tags: adaptive access control 
-category: data
+tags: adaptive access control authentication mitigation
+category: product
 ---
 
 In an earlier post I [talked about Identity
@@ -87,12 +87,12 @@ That's where policies come in.
 
 Policies are the way the user specifies which mitigation strategies
 apply to which identities. At the most basic, they define a mitigation
-strategy for a given risk level and service. For instance, the policies
+strategy for a given risk level per service. For instance, the policies
 for [Okta](http://okta.com) might be:
 
-  * `Bad` users in Okta &rarr; Move to group **Bad**
-  * `Suspect` users in Okta &rarr; Move to group **Suspect**
-  * `Good` users in Okta &rarr; Do nothing
+  * `Bad` users &rarr; Move to group **Bad** in Okta 
+  * `Suspect` users &rarr; Move to group **Suspect** in Okta
+  * `Good` users &rarr; Do nothing
 
 For each such policy, the defined strategy is applied for the given
 service when an identity moves into the given risk level. Each mitigation strategy also includes
@@ -108,6 +108,14 @@ reversible. For example, reprovisioning a user in Okta requires action
 on the part of the user. The user is free to choose fully reversible
 mitigation strategies if the desire, but in general this is why the
 emphasis is on *side effects* instead of state.
+
+Though the examples above focus on a single mitigation strategy,
+policies may specify a group of mitigation strategies. This simply means
+that multiple actions are taken when the appropriate transition occurs.
+In fact, you can think of the per-service policies as
+combined into a single set of mitigation strategies scoped to the
+service. Taking multiple mitigation strategies is particularly relevant in the
+context of policy *exceptions*.
 
 ### Policy exceptions
 

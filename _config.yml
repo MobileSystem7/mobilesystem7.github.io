@@ -5,7 +5,7 @@ url: "https://developers.mobilesystem7.com"
 
 markdown: rdiscount
 permalink: pretty
-highlighter: true
+highlighter: pygments
 paginate: 5
 paginate_path: "blog/page:num"
 permalink: /blog/post/:title

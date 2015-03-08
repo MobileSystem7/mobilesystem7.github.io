@@ -12,7 +12,7 @@ Our UI was using combination of [Rails 3.x Asset Pipeline](http://guides.rubyonr
 
 The first step in replacing the asset pipeline is identifying what we're relying on and what can we use as replacement. The objective is to decouple the UI from the Rails toolchain, maintaining benefits of the asset pipeline while improving configuration ability.
 
-*Note: <!-- We've been using [Grunt](http://gruntjs.com) for some tasks like [linting](https://github.com/gruntjs/grunt-contrib-jshint) and [concatenation](https://github.com/gruntjs/grunt-contrib-concat) for some time.  -->Since we're already using Grunt and have Node/NPM installed and setup I won't be going over getting that going but you can get some help [here](https://www.joyent.com/blog/installing-node-and-npm/). NPM will be initialized in your /app/assets/ directory*
+*Note: Since we're already using Grunt and have Node/NPM installed and setup I won't be going over getting that going but you can get some help [here](https://www.joyent.com/blog/installing-node-and-npm/). NPM will be initialized in your /app/assets/ directory*
 
 
 <hr>

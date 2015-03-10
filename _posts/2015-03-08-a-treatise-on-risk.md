@@ -47,6 +47,20 @@ Sudan using a new Windows PC at a time when they are normally asleep, the
 activities performed with those parameters are much more likely to be
 malicious. These Sudanese activities pose a large unsubstantiated risk.
 
+It's worth saying that the typical approach to unsubstantiated risk is
+to build more structure and trust around authentication, to try and
+ensure that the person behind each activity **is** the person they claim
+to be. Unfortunately, we have seen time and again that dedicated
+attackers can and will gain access to desired resources despite expensive and
+complicated authentication measures such as MFA.  As a result, conflating
+authentication and security creates a common blind spot for
+organizations, one that we talk about a lot: the identity gap. The
+identity gap results when authentication is the last line of defense,
+leaving each further action subject to no analysis.  Monitoring
+unsubstantiated risk for each access goes a long way toward closing this
+security gap. Bad guys can no longer act with impunity, as every [action
+they take may reveal them](/blog/post/evil-twin/).
+
 ## Intrinsic Risk
 
 Intrinsic risk is the risk posed *by the identity* as a result of
@@ -97,14 +111,18 @@ grows to be trusted automatically. Alternatively, assuming the presence of a
 trusted communication channel the user can be asked to verify the parameters
 directly - did you just use a new Android phone in Brazil?
 
-Responding to Risk Ultimately, how we address a given risk boils down to a
+## Responding to Risk
+
+Ultimately, how we address a given risk boils down to a
 combination of the above factors, the degree of each type of risk, the
 distribution of each type of risk in the population, and the policies specified
 by the user. [Adaptive access control](/blog/post/adaptive-access-control/)
 aims to respond to risk in the way that is both least intrusive and most
 effective. 
 
-For unsubstantiated risk, addressing risk by asking the user to verify the
+### Unsubstantiated risk
+
+Addressing unsubstantiated risk by asking the user to verify the
 parameters of the activities directly offers a one-time process for responding
 to risk. If the parameters are indeed correct, the unsubstantiated risk is
 attenuated; if not, it is a direct confirmation of a security failure. We are
@@ -113,7 +131,9 @@ Interlock. It promises a tremendous improvement to the focus and accuracy of
 our risk estimates with little or no expenditure of scarce security resources
 on the part of the organization.
 
-For intrinsic risk, the correct response is usually taking no action at all but
+### Intrinsic risk
+
+The correct response to intrinsic risk is usually taking no action at all but
 rather subjecting the identity to closer scrutiny. A direct approach to
 intrinsic risk is inappropriate. For a potential insider threat the user
 herself represents the threat and would be expected to respond negatively; for
